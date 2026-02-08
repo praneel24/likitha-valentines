@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Likitha my baby kutty❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 700px;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin: 15px 0;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 15px;
+      transition: 0.3s;
+    }
+
+    #nextBtn, #yes {
+      background-color: white;
+      color: #ff4f81;
+    }
+
+    #no {
+      background-color: #ff4f81;
+      color: white;
+      position: relative;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .active {
+      display: block;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-100vh); opacity: 0; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- PAGE 1 -->
+  <div id="page1" class="page active">
+    <h1 id="typing"></h1>
+    <p>I could’ve asked you normally...</p>
+    <p>But you’re not normal to me.</p>
+    <button id="nextBtn" onclick="nextPage(2)">Next 💌</button>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div id="page2" class="page">
+    <h1>You know something?</h1>
+    <p>Out of 8 billion people...</p>
+    <p>I found someone who makes my days brighter.</p>
+    <p>Someone who makes everything feel lighter.</p>
+    <button id="nextBtn" onclick="nextPage(3)">Next 💖</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div id="page3" class="page">
+    <h1>Likitha...bujju</h1>
+    <p>You are my peace.</p>
+    <p>My comfort.</p>
+    <p>And the best part of my everyday.</p>
+    <button id="nextBtn" onclick="nextPage(4)">One More Thing... ❤️</button>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div id="page4" class="page">
+    <h1>So I have one question...</h1>
+    <p>Will you be my Valentine? 💘</p>
+    <button id="yes" onclick="sayYes()">YES ❤️</button>
+    <button id="no" onmouseover="moveNo()">NO 😏</button>
+  </div>
+
+  <!-- PAGE 5 -->
+  <div id="page5" class="page">
+    <h1>You just made me the happiest man alive 💖</h1>
+    <p>I love you more than words can explain, Likitha my lovee❤️</p>
+  </div>
+
+</div>
+
+<script>
+/* PAGE SWITCHING */
+function nextPage(pageNumber) {
+  var pages = document.querySelectorAll(".page");
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].classList.remove("active");
+  }
+  document.getElementById("page" + pageNumber).classList.add("active");
+}
+
+/* YES BUTTON */
+function sayYes() {
+  nextPage(5);
+}
+
+/* NO BUTTON RUN AWAY */
+function moveNo() {
+  var noBtn = document.getElementById("no");
+  var x = Math.random() * 300 - 150;
+  var y = Math.random() * 200 - 100;
+  noBtn.style.transform = "translate(" + x + "px, " + y + "px)";
+}
+
+/* TYPING EFFECT */
+var text = "Hey Likitha babyy ❤️";
+var i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 80);
+  }
+}
+
+window.onload = typeWriter;
+
+/* FLOATING HEARTS */
+setInterval(function() {
+  var heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.style.position = "fixed";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.top = "100vh";
+  heart.style.fontSize = "20px";
+  heart.style.animation = "floatUp 4s linear";
+  heart.style.zIndex = "1";
+  document.body.appendChild(heart);
+
+  setTimeout(function() {
+    heart.remove();
+  }, 4000);
+}, 500);
+
+</script>
+
+</body>
+</html>
